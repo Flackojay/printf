@@ -1,9 +1,12 @@
 #include "main.h"
 
 /**
- * _printf: produces output according to a format.
+ * _printf - produces output according to a format.
  * @format: character string with zero or more directives.
- * Return: the number of characters printed
+ *
+ * Description: This function writes output to stdout according to the
+ * format string provided, similar to the standard printf function.
+ * Return: the number of characters printed (excluding null byte)
  */
 int _printf(const char *format, ...)
 {
@@ -11,8 +14,8 @@ int _printf(const char *format, ...)
 	int count = 0;
 	int i = 0;
 
-	if (format == NULL || format[0] == '%' && format[1] == '\0')
-		return (-1);
+	if (format == NULL)
+		return (0);
 
 	va_start(args, format);
 
@@ -32,9 +35,6 @@ int _printf(const char *format, ...)
 				case '%':
 					count += _putchar('%');
 					break;
-				default:
-					count += _putchar('%);
-					count += _putchar(format[i]);
 			}
 		}
 		else
