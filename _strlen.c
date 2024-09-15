@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strlen: custom implementation of strlen
+ * _strlen - custom implementation of strlen
  * @str: str to check
  *
  * Return: length of the string
