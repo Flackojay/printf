@@ -19,7 +19,6 @@ int _printf(const char *format, ...)
 		va_end(args);
 		return (-1);
 	}
-	
 	va_start(args, format);
 
 	while (format && format[i])
@@ -39,6 +38,7 @@ int _printf(const char *format, ...)
 					count += _putchar('%');
 					break;
 				default:
+					count += _putchar('%');
 					count += _putchar(format[i]);
 					break;
 			}
