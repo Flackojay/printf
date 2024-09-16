@@ -15,37 +15,15 @@ int _printf(const char *format, ...)
 	int i = 0;
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-	{
-		va_end(args);
 		return (-1);
-	}
+
 	va_start(args, format);
 
 	while (format && format[i])
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			switch (format[i])
-			{
-				case 'c':
-					count += _putchar(va_arg(args, int));
-					break;
-				case 's':
-					count += print_string(va_arg(args, char *));
-					break;
-				case 'd':
-				case 'i':
-					count += print_integer(va_arg(args, int));
-					break;
-				case '%':
-					count += _putchar('%');
-					break;
-				default:
-					count += _putchar('%');
-					count += _putchar(format[i]);
-					break;
-			}
+			count += handle_specifier(format, args, &i);
 		}
 		else
 		       count += _putchar(format[i]);
