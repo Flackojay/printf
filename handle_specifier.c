@@ -26,6 +26,9 @@ int handle_specifier(const char *format, va_list args, int *i)
 		case 'i':
 			count += print_integer(va_arg(args, int));
 			break;
+		case 'b':
+			count += print_bin(va_arg(args, int));
+			break;
 		case '%':
 			count += _putchar('%');
 			break;

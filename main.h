@@ -12,5 +12,6 @@ int _strlen(const char *str);
 int print_integer(int n);
 int print_string(char *str);
 int handle_specifier(const char *format, va_list args, int *i);
+int print_bin(int n);
 
 #endif
