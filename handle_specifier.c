@@ -14,41 +14,12 @@ int handle_specifier(const char *format, va_list args, int *i)
 
 	(*i)++;
 
-	switch (format[*i])
-	{
-		case 'c':
-			count += _putchar(va_arg(args, int));
-			break;
-		case 's':
-			count += print_string(va_arg(args, char *));
-			break;
-		case 'd':
-		case 'i':
-			count += print_integer(va_arg(args, int));
-			break;
-		case 'b':
-			count += print_bin(va_arg(args, int));
-			break;
-		case 'u':
-			count += print_uns(va_arg(args, unsigned int));
-			break;
-		case 'o':
-			count += print_octal(va_arg(args, unsigned int));
-			break;
-		case 'x':
-			count += print_hex_lower(va_arg(args, unsigned int));
-			break;
-		case 'X':
-			count += print_hex_upper(va_arg(args, unsigned int));
-			break;
-		case '%':
-			count += _putchar('%');
-			break;
-		default:
-			count += _putchar('%');
-			count += _putchar(format[*i]);
-			break;
-	}
-
+	if (format[*i] == 'c' || format[*i] == 's' || format[*i] == 'S')
+		count += handle_char_specifiers(format, args, i);
+	else if (format[*i] == 'd' || format[*i] == 'i' || format[*i] == 'u'
+			|| format[*i] == 'o' || format[*i] == 'x' || format[*i] == 'X')
+		count += handle_number_specifiers(format, args, i);
+	else
+		count += handle_misc_specifiers(format, i);
 	return (count);
 }

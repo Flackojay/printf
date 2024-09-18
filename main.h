@@ -17,5 +17,10 @@ int print_uns(unsigned int n);
 int print_octal(unsigned int n);
 int print_hex_lower(unsigned int n);
 int print_hex_upper(unsigned int n);
+int is_printable(char c);
+int print_custom_string(char *str);
+int handle_misc_specifiers(const char *format, int *i);
+int handle_number_specifiers(const char *format, va_list args, int *i);
+int handle_char_specifiers(const char *format, va_list args, int *i);
 
 #endif
