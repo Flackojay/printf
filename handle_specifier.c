@@ -19,6 +19,8 @@ int handle_specifier(const char *format, va_list args, int *i)
 	else if (format[*i] == 'd' || format[*i] == 'i' || format[*i] == 'u'
 			|| format[*i] == 'o' || format[*i] == 'x' || format[*i] == 'X')
 		count += handle_number_specifiers(format, args, i);
+	else if (format[*i] == 'p')
+		count += print_pointer(va_arg(args, void *));
 	else
 		count += handle_misc_specifiers(format, i);
 	return (count);

@@ -22,5 +22,6 @@ int print_custom_string(char *str);
 int handle_misc_specifiers(const char *format, int *i);
 int handle_number_specifiers(const char *format, va_list args, int *i);
 int handle_char_specifiers(const char *format, va_list args, int *i);
+int print_pointer(void *ptr);
 
 #endif
