@@ -29,6 +29,18 @@ int handle_specifier(const char *format, va_list args, int *i)
 		case 'b':
 			count += print_bin(va_arg(args, int));
 			break;
+		case 'u':
+			count += print_uns(va_arg(args, unsigned int));
+			break;
+		case 'o':
+			count += print_octal(va_arg(args, unsigned int));
+			break;
+		case 'x':
+			count += print_hex_lower(va_arg(args, unsigned int));
+			break;
+		case 'X':
+			count += print_hex_upper(va_arg(args, unsigned int));
+			break;
 		case '%':
 			count += _putchar('%');
 			break;

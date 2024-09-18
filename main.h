@@ -13,5 +13,9 @@ int print_integer(int n);
 int print_string(char *str);
 int handle_specifier(const char *format, va_list args, int *i);
 int print_bin(int n);
+int print_uns(unsigned int n);
+int print_octal(unsigned int n);
+int print_hex_lower(unsigned int n);
+int print_hex_upper(unsigned int n);
 
 #endif
