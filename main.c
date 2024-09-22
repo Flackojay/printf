@@ -41,5 +41,9 @@ int main(void)
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
     _printf("%S\n", "Best\nSchool");
+    _printf("Positive with + flag: %+d\n", 123);
+    _printf("Positive with space flag: % d\n", 123);
+    _printf("Hex with # flag: %#x\n", 123);
+    _printf("Octal with # flag: %#o\n", 123);
     return (0);
 }
