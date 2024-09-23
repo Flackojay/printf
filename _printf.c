@@ -23,7 +23,13 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			count += handle_specifier(format, args, &i);
+			if (format[i + 1] == '%')
+			{
+				count += _putchar('%');
+				i++;
+			}
+			else
+				count += handle_specifier(format, args, &i);
 		}
 		else
 		       count += _putchar(format[i]);

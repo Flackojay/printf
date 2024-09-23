@@ -45,5 +45,9 @@ int main(void)
     _printf("Positive with space flag: % d\n", 123);
     _printf("Hex with # flag: %#x\n", 123);
     _printf("Octal with # flag: %#o\n", 123);
+    _printf("% \n");
+    printf("% \n");
+    _printf("% % % % \n");
+    printf("% % % % \n");
     return (0);
 }
